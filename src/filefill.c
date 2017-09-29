@@ -37,7 +37,6 @@ unsigned char getByte(char chHighNibble, char chLowNibble)
 
 int main(int argc, char *argv[])
 {
-	int				i;
 	int				value = 0;
 	int				numBytes = 0;
 	unsigned char	b = 0x00;
@@ -89,9 +88,7 @@ int main(int argc, char *argv[])
 		exit(-1);
 	}
 	
-	for (i = 0;i < numBytes;i++) {
-		buffer[i] = b;
-	}
+	memset(buffer, b, numBytes);
 	
 	fwrite(buffer, 1, numBytes, fptr);
 	
